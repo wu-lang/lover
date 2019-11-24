@@ -6,7 +6,7 @@ A wrapper for the Love2D game engine, for game development with Wu. Function nam
 ## Example
 
 ```fsharp
-import love
+import lover
 
 Player: struct {
   x: float
@@ -16,10 +16,10 @@ Player: struct {
 
 implement Player {
   update: fun(dt: float) {
-    if love keyboard is_down("left") {
+    if lover keyboard is_down("left") {
       self x -= self speed * dt
     }
-    if love keyboard is_down("right") {
+    if lover keyboard is_down("right") {
       self x += self speed * dt
     }
   }
@@ -30,13 +30,13 @@ player := new Player {
   y: 100
 }
 
-love update = fun(dt: float) {
+lover update = fun(dt: float) {
   player update(dt)
 }
 
-love draw = fun {
-  love graphics set_color(255, 100, 255)
-  love graphics rectangle("fill", player x, player y, 20, 20)
+lover draw = fun {
+  lover graphics set_color(255, 100, 255)
+  lover graphics rectangle("fill", player x, player y, 20, 20)
 }
 ```
 
