@@ -1,0 +1,31 @@
+import graphics
+import keyboard
+
+graphics: extern graphics = "love.graphics"
+keyboard: extern keyboard = "love.keyboard"
+
+
+load:   extern fun = "love.load"
+draw:   extern fun = "love.draw"
+update: extern fun (float) = "love.update"
+
+
+__love: module {
+    load:   extern fun
+    draw:   extern fun
+    update: extern fun (float)
+}
+
+love: extern __love
+
+setLoad: fun(f: fun) {
+    love load = f
+}
+
+setDraw: fun(f: fun) {
+    love draw = f
+}
+
+setUpdate: fun(f: fun(float)) {
+    love update = f
+}

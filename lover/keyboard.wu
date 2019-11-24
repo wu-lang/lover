@@ -1,0 +1,1 @@
+isDown: extern fun(str) -> bool
