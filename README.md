@@ -1,7 +1,7 @@
 <img align="right" width="30%" height="30%" src="https://i.ibb.co/3hnWTkt/love-wu.png" alt="wu_dragon">
 
 # Love
-A simple wrapper for the Love2D game engine, for game development with Wu. Function names have been changed from CamelCase to snake_case to be consistent with Wu code-style.
+A simple wrapper for the Love2D game engine, for game development with Wu.
 
 ## Example
 
