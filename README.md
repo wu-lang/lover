@@ -5,8 +5,9 @@
 </div>
 
 <h1 align="center">Lover</h1>
+<h3 align="center">A strongly typed Wu wrapper for the Love2D game engine.</h3>
 
-A strongly typed Wu wrapper for the Love2D game engine. Building your games in Wu and with Lover will massively reduce runtime errors and make for better scalability. Lover provides a wide-scale Wu framework for game development through the latest version of Love2D. Let's go.
+Building your games in Wu and with Lover will massively reduce runtime errors and make for better scalability. Lover provides a wide-scale Wu framework for game development through the latest version of Love2D. Let's go.
 
 ## Wu?
 
