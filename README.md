@@ -60,6 +60,30 @@ lover setUpdate(update)
 lover setDraw(draw)
 ```
 
+### Roadmap
+
+The current wrapper will provide you with the basic tools to make a fully functioning desktop game. The rest of the engine are being plugged in as we speak. ;)
+
+- [ ] `love.audio`
+- [ ] `love.data`
+- [ ] `love.event`
+- [ ] `love.filesystem`
+- [ ] `love.font`
+- [x] `love.graphics`
+- [ ] `love.image`
+- [ ] `love.joystick`
+- [ ] `love.keyboard`
+- [ ] `love.math`
+- [ ] `love.mouse`
+- [x] `love.physics`
+- [ ] `love.sound`
+- [ ] `love.system`
+- [ ] `love.thread`
+- [ ] `love.timer`
+- [ ] `love.touch`
+- [ ] `love.video`
+- [ ] `love.window`
+
 ### License
 
 [MIT License](https://github.com/nilq/love/blob/master/LICENSE)
