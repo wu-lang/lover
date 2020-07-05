@@ -1,0 +1,131 @@
+Fixture: trait {}
+World: trait {}
+Shape: trait {}
+
+ChainShape: trait {}
+CircleShape: trait {}
+EdgeShape: trait {}
+PolygonShape: trait {}
+
+Joint: trait {}
+
+DistanceJoint: trait {}
+FrictionJoint: trait {}
+GearJoint: trait {}
+MotorJoint: trait {}
+MouseJoint: trait {}
+PrismaticJoint: trait {}
+PulleyJoint: trait {}
+RevoluteJoint: trait {}
+RopeJoint: trait {}
+WeldJoint: trait {}
+WheelJoint: trait {}
+
+Contact: trait {
+    getChildren: fun(self) -> ...float
+    getFixtures: fun(self) -> ...Fixture
+    getFriction: fun(self) -> float
+    getNormal: fun(self) -> ...float
+    getPositions: fun(self) -> ...float
+    getRestitution: fun(self) -> float
+    isEnabled: fun(self) -> bool
+    isTouching: fun(self) -> bool
+    resetFriction: fun(self)
+    resetRestitution: fun(self)
+    setEnabled: fun(self, bool)
+    setFriction: fun(self, float)
+    setRestitution: fun(self, float)
+    release: fun(self) -> bool
+    type: fun(self) -> str
+    typeOf: fun(self, str) -> bool 
+}
+
+
+Body: trait {
+    applyAngularImpulse: fun(self, float)
+    applyForce: fun(self, float, float)
+    applyImpulse: fun(self, float, float, float, float)
+    applyLinearImpulse: fun(self, float, float)
+    applyTorque: fun(self, float)
+    destroy: fun(self)
+    getAngle: fun(self) -> float
+    getAngularDamping: fun(self) -> float
+    getAngularVelocity: fun(self) -> float
+    getContacts: fun(self) -> [Contact]
+    getFixtures: fun(self) -> [Fixture]
+    getGravityScale: fun(self) -> float
+    getInertia: fun(self) -> float
+    getJoints: fun(self) -> [Joint]
+    getLinearDamping: fun(self) -> float
+    getLinearVelocity: fun(self) -> ...float
+    getLinearVelocityFromLocalPoint: fun(self, float, float) -> ...float
+    getLinearVelocityFromWorldPoint: fun(self, float, float) -> ...float
+    getLocalCenter: fun(self) -> ...float
+    getLocalPoint: fun(self, float, float) -> ...float
+    getMass: fun(self) -> float
+    getLocalVector: fun(self, float, float) -> ...float
+    getMassData: fun(self) -> ...float
+    getPosition: fun(self) -> ...float
+    getType: fun(self) -> str
+    getUserData: fun(self) -> any
+    getWorld: fun(self) -> World
+    getWorldCenter: fun(self) -> ...float
+    getWorldPoint: fun(self, float, float) -> ...float
+    getWorldPoints: fun(self, ...float) -> ...float
+    getWorldVector: fun(self, float, float) -> ...float
+    getX: fun(self) -> float
+    getY: fun(self) -> float
+    isActive: fun(self) -> bool
+    isAwake: fun(self) -> bool
+    isBullet: fun(self) -> bool
+    isDestroyed: fun(self) -> bool
+    isFixedRotation: fun(self) -> bool
+    isSleepingAllowed: fun(self) -> bool
+    isTouching: fun(self, Body) -> bool
+    resetMassData: fun(self)
+    setActive: fun(self, bool)
+    setAngle: fun(self, float)
+    setAngularDamping: fun(self, float)
+    setAngularVelocity: fun(self, float)
+    setAwake: fun(self, bool)
+    setBullet: fun(self, bool)
+    setFixedRotation: fun(self, bool)
+    setGravityScale: fun(self, float)
+    setInertia: fun(self, float)
+    setLinearDamping: fun(self, float)
+    setLinearVelocity: fun(self, float, float)
+    setMass: fun(self, float)
+    setMassData: fun(self, float, float, float, float)
+    setPosition: fun(self, float, float)
+    setSleepingAllowed: fun(self, bool)
+    setType: fun(self, str)
+    setUserData: fun(self, any)
+    setX: fun(self, float)
+    setY: fun(self, float)
+    wakeUp: fun
+}
+
+# END OF TYPES
+
+getDistance: extern fun(Fixture, Fixture) -> ...float
+getMeter: extern fun -> float
+newBody: extern fun(World, float, float, str) -> Body
+newChainShape: extern fun(bool, ...float) -> ChainShape
+newCircleShape: extern fun(float) -> CircleShape
+newDistanceJoint: extern fun(Body, Body, float, float, float, float, bool) -> DistanceJoint
+newEdgeShape: extern fun(float, float, float, float) -> EdgeShape
+newFixture: extern fun(Body, Shape, float) -> Fixture
+newFrictionJoint: extern fun(Body, Body, float, float, bool) -> FrictionJoint
+newGearJoint: extern fun(Joint, Joint, float, bool) -> GearJoint
+newMotorJoint: extern fun(Body, Body, float) -> MotorJoint
+newMouseJoint: extern fun(Body, float, float) -> MouseJoint
+newPolygonShape: extern fun(...float) -> PolygonShape
+newPrismaticJoint: extern fun(Body, Body, float, float, float, float, bool) -> PrismaticJoint
+newPulleyJoint: extern fun(Body, Body, float, float, float, float, float, float, float, float, float, bool) -> PulleyJoint
+newRectangleShape: extern fun(float, float) -> PolygonShape
+newRevoluteJoint: extern fun(Body, Body, float, float, bool) -> RevoluteJoint
+newRopeJoint: extern fun(Body, Body, float, float, float, float, float, bool) -> RopeJoint
+newWeldJoint: extern fun(Body, Body, float, float, bool) -> WeldJoint
+newWheelJoint: extern fun(Body, Body, float, float, float, float, bool) -> WheelJoint
+newWorld: extern fun(float, float, bool) -> World
+setMeter: extern fun(float)

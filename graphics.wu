@@ -13,7 +13,7 @@ circle:    extern fun(float, float, float)
 draw:      extern fun(Image, float, float, float, float, float)
 print:     extern fun(str, float, float)
 line:      extern fun(float, float, float, float)
-polygon:   extern fun(...float) # lots of points
+polygon:   extern fun(...float)
 
 push:      extern fun
 pop:       extern fun
