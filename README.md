@@ -1,7 +1,17 @@
-<img align="right" width="30%" height="30%" src="https://i.ibb.co/3hnWTkt/love-wu.png" alt="wu_dragon">
+<div align="center">
+    <a href="https://github.com/wu-lang/wu" target="_blank">
+        <img src="https://i.ibb.co/3hnWTkt/love-wu.png" alt="Wu Dragon Heart" width="140" height="140"></img>
+    </a>
+</div>
 
-# Love
-A simple wrapper for the Love2D game engine, for game development with Wu.
+<h1 align="center">Lover</h1>
+<h3 align="center">A strongly typed Wu wrapper for the Love2D game engine.</h3>
+
+Building your games in Wu and with Lover will massively reduce runtime errors and make for better scalability. Lover provides a wide-scale Wu framework for game development through the latest version of Love2D. Let's go.
+
+## Wu?
+
+Wu is a gradually typed, Rust-inspired programming language that compiles to Lua. The language is designed with scalability and ease-of-use in mind, originally striving to be a solid alternative to Lua and MoonScript - but with **types** and more *rusty*.
 
 ## Example
 
@@ -49,7 +59,6 @@ draw: fun {
 lover setUpdate(update)
 lover setDraw(draw)
 ```
-
 
 ### License
 
