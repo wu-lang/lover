@@ -1,31 +1,89 @@
+import audio
+import data
+import event
+import filesystem
+import font
 import graphics
+import image
+import joystick
 import keyboard
+import math
+import mouse
+import physics
+import sound
+import system
+import thread
+import timer
+import touch
+import video
+import window
+import types { Config }
 
-graphics: extern graphics = "love.graphics"
-keyboard: extern keyboard = "love.keyboard"
+
+# TODO: update signatures when sum types are implemented
+# TODO: update signatures when enums are implemented
 
 
-load:   extern fun = "love.load"
-draw:   extern fun = "love.draw"
-update: extern fun (float) = "love.update"
+# FUNCTIONS -----------------------------------------------------------------------------
+
+getVersion:             extern fun() -> (int, int, int, str)
+hasDeprecationOutput:   extern fun() -> bool
+isVersionCompatible:    extern fun(any, int?, int?) -> bool # fun(str|int?, int?, int?) -> bool
+setDeprecationOutput:   extern fun(bool) -> nil
 
 
-__love: module {
-    load:   extern fun
-    draw:   extern fun
-    update: extern fun (float)
-}
 
-love: extern __love
+# CALLBACKS -----------------------------------------------------------------------------
 
-setLoad: fun(f: fun) {
-    love load = f
-}
+# general
 
-setDraw: fun(f: fun) {
-    love draw = f
-}
+conf:               extern fun(Config) -> nil
+displayrotated:     extern fun(int, str) -> nil # fun(int, window DisplayOrientation) -> nil
+draw:               extern fun() -> nil
+errhandler:         extern fun(str) -> nil
+load:               extern fun(any?, any?) -> nil
+lowmemory:          extern fun() -> nil
+quit:               extern fun() -> bool
+run:                extern fun() -> fun
+threaderror:        extern fun(thread Thread, str) -> nil
+update:             extern fun(float) -> nil
 
-setUpdate: fun(f: fun(float)) {
-    love update = f
-}
+# window
+
+directorydropped:   extern fun(str) -> nil
+filedropped:        extern fun(filesystem DroppedFile) -> nil
+focus:              extern fun(bool) -> nil
+mousefocus:         extern fun(bool) -> nil
+resize:             extern fun(int, int) -> nil
+visible:            extern fun(bool) -> nil
+
+# keyboard
+
+keypressed:         extern fun(str, str, bool) -> nil # fun(keyboard KeyConstant, keyboard Scancode, bool)
+keyreleased:        extern fun(str, str) -> nil # fun(keyboard KeyConstant, keyboard Scancode) -> nil
+textedited:         extern fun(str, int, int) -> nil
+textinput:          extern fun(str) -> nil
+
+# mouse
+mousemoved:         extern fun(int, int, int, int, bool) -> nil
+mousepressed:       extern fun(int, int, int, bool, int) -> nil
+mousereleased:      extern fun(int, int, int, bool, int) -> nil
+wheelmoved:         extern fun(int, int) -> nil
+
+# joystick
+
+gamepadaxis:        extern fun(joystick Joystick, str, float) -> nil # fun(joystick Joystick, joystick GamepadAxis, float) -> nil
+gamepadpressed:     extern fun(joystick Joystick, str) -> nil # fun(joystick Joystick, joystick GamepadButton) -> nil
+gamepadreleased:    extern fun(joystick Joystick, str) -> nil # fun(joystick Joystick, joystick GamepadButton) -> nil
+joystickadded:      extern fun(joystick Joystick) -> nil
+joystickaxis:       extern fun(joystick Joystick, int, float) -> nil
+joystickhat:        extern fun(joystick Joystick, int, str) -> nil # fun(joystick Joystick, int, joystick JoystickHat) -> nil
+joystickpressed:    extern fun(joystick Joystick, int)
+joystickreleased:   extern fun(joystick Joystick, int)
+joystickremoved:    extern fun(joystick Joystick) -> nil
+
+# touch
+
+touchmoved:         extern fun(any, int, int, int, int, float)
+touchpressed:       extern fun(any, int, int, int, int, float)
+touchreleased:      extern fun(any, int, int, int, int, float)

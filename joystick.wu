@@ -1,0 +1,66 @@
+import types { Object_T }
+
+
+
+# GamepadAxis: enum {"leftx", "lefty", "rightx", "righty", "triggerleft", "triggerright"}
+# GamepadButton: enum {"a","b","x","y","back","guide","start","leftstick","rightstick","leftshoulder","rightshoulder","dpup","dpdown","dpleft","dpright"}
+# JoystickHat: enum {"c", "d", "l", "ld", "lu", "r", "rd", "ru", "u"}
+# JoystickInputType: enum {"axis", "button", "hat"}
+
+
+
+Joystick: struct {}
+
+Joystick_T: trait {
+    getAxes:                    fun(self) -> ...float
+    getAxis:                    fun(self, int) -> float
+    getAxisCount:               fun(self) -> int
+    getButtonCount:             fun(self) -> int
+    getConnectedIndex:          fun(self) -> int?
+    getDeviceInfo:              fun(self) -> (int, int, int)
+    getGUID:                    fun(self) -> str
+    getGamepadAxis:             fun(self, str) -> int # fun(self, GamepadAxis) -> int
+    getGamepadMapping:          fun(self, any) -> (str, int, str?) # fun(self, GamepadAxis|GamepadButton) -> (JoystickInputType, int, JoystickHat?)
+    getGamepadMappingString:    fun(self) -> str?
+    getHat:                     fun(self, int) -> str # fun(self, int) -> JoystickHat
+    getHatCount:                fun(self) -> int
+    getID:                      fun(self) -> (int, int?)
+    getName:                    fun(self) -> str
+    getVibration:               fun(self) -> (float, float)
+    isConnected:                fun(self) -> bool
+    isDown:                     fun(self, ...int) -> bool
+    isGamepad:                  fun(self) -> bool
+    isGamepadDown:              fun(self, ...str) -> bool # fun(self, ...GamepadButton) -> bool
+    isVibrationSupported:       fun(self) -> bool
+    setVibration:               fun(self, float?, float?, float?) -> bool
+}
+
+implement Joystick: Object_T {
+    release: extern fun(self) -> bool
+    type:    extern fun(self) -> str
+    typeOf:  extern fun(self, str) -> bool
+}
+
+implement Joystick: Joystick_T {
+    getAxes:                    extern fun(self) -> ...float
+    getAxis:                    extern fun(self, int) -> float
+    getAxisCount:               extern fun(self) -> int
+    getButtonCount:             extern fun(self) -> int
+    getConnectedIndex:          extern fun(self) -> int?
+    getDeviceInfo:              extern fun(self) -> (int, int, int)
+    getGUID:                    extern fun(self) -> str
+    getGamepadAxis:             extern fun(self, str) -> int # fun(self, GamepadAxis) -> int
+    getGamepadMapping:          extern fun(self, any) -> (str, int, str?) # fun(self, GamepadAxis|GamepadButton) -> (JoystickInputType, int, JoystickHat?)
+    getGamepadMappingString:    extern fun(self) -> str?
+    getHat:                     extern fun(self, int) -> str # fun(self, int) -> JoystickHat
+    getHatCount:                extern fun(self) -> int
+    getID:                      extern fun(self) -> (int, int?)
+    getName:                    extern fun(self) -> str
+    getVibration:               extern fun(self) -> (float, float)
+    isConnected:                extern fun(self) -> bool
+    isDown:                     extern fun(self, ...int) -> bool
+    isGamepad:                  extern fun(self) -> bool
+    isGamepadDown:              extern fun(self, ...str) -> bool # fun(self, ...GamepadButton) -> bool
+    isVibrationSupported:       extern fun(self) -> bool
+    setVibration:               extern fun(self, float?, float?, float?) -> bool
+}
