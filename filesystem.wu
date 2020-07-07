@@ -1,0 +1,80 @@
+import types { Object_T, Data }
+
+
+
+# BufferMode: enum {"none", "line", "full"}
+# FileMode: enum {"r", "w", "a", "c"}
+# ContainerType: enum {"data", "string"}
+
+
+File: struct {}
+
+File_T: trait {
+    close:          fun(self) -> bool
+    flush:          fun(self) -> (bool, str?)
+    getBuffer:      fun(self) -> (str, int) # fun(self) -> (BufferMode, int)
+    getFilename:    fun(self) -> str
+    getMode:        fun(self) -> str # fun(self) -> FileMode
+    getSize:        fun(self) -> int
+    isEOF:          fun(self) -> bool
+    isOpen:         fun(self) -> bool
+    lines:          fun(self) -> fun
+    open:           fun(self, str) -> (bool, str?) # fun(self, FileMode) -> (bool, str?)
+    read:           fun(self, str, int?) -> (any, int) # (self, int|ContainerType, int?) -> (str|FileData, int)
+    seek:           fun(self, int) -> bool
+    setBuffer:      fun(self, str, int?) -> (bool, str?) # fun(self, BufferMode, int?) -> (bool, str?)
+    tell:           fun(self) -> int
+    write:          fun(self, any, int?) -> (bool, str?) # (self, str|Data, int?) -> bool, str?
+}
+
+implement File: Object_T {
+    release: extern fun(self) -> bool
+    type:    extern fun(self) -> str
+    typeOf:  extern fun(self, str) -> bool
+}
+
+implement File: File_T {
+    close:          extern fun(self) -> bool
+    flush:          extern fun(self) -> (bool, str?)
+    getBuffer:      extern fun(self) -> (str, int) # fun(self) -> (BufferMode, int)
+    getFilename:    extern fun(self) -> str
+    getMode:        extern fun(self) -> str # fun(self) -> FileMode
+    getSize:        extern fun(self) -> int
+    isEOF:          extern fun(self) -> bool
+    isOpen:         extern fun(self) -> bool
+    lines:          extern fun(self) -> fun
+    open:           extern fun(self, str) -> (bool, str?) # fun(self, FileMode) -> (bool, str?)
+    read:           extern fun(self, str, int?) -> (any, int) # (self, int|ContainerType, int?) -> (str|FileData, int)
+    seek:           extern fun(self, int) -> bool
+    setBuffer:      extern fun(self, str, int?) -> (bool, str?) # fun(self, BufferMode, int?) -> (bool, str?)
+    tell:           extern fun(self) -> int
+    write:          extern fun(self, any, int?) -> (bool, str?) # (self, str|Data, int?) -> bool, str?
+}
+
+
+
+DroppedFile: struct {}
+
+implement DroppedFile: Object_T {
+    release: extern fun(self) -> bool
+    type:    extern fun(self) -> str
+    typeOf:  extern fun(self, str) -> bool
+}
+
+implement DroppedFile: File_T {
+    close:          extern fun(self) -> bool
+    flush:          extern fun(self) -> (bool, str?)
+    getBuffer:      extern fun(self) -> (str, int) # fun(self) -> (BufferMode, int)
+    getFilename:    extern fun(self) -> str
+    getMode:        extern fun(self) -> str # fun(self) -> FileMode
+    getSize:        extern fun(self) -> int
+    isEOF:          extern fun(self) -> bool
+    isOpen:         extern fun(self) -> bool
+    lines:          extern fun(self) -> fun
+    open:           extern fun(self, str) -> (bool, str?) # fun(self, FileMode) -> (bool, str?)
+    read:           extern fun(self, str, int?) -> (any, int) # (self, int|ContainerType, int?) -> (str|FileData, int)
+    seek:           extern fun(self, int) -> bool
+    setBuffer:      extern fun(self, str, int?) -> (bool, str?) # fun(self, BufferMode, int?) -> (bool, str?)
+    tell:           extern fun(self) -> int
+    write:          extern fun(self, any, int?) -> (bool, str?) # (self, str|Data, int?) -> bool, str?
+}

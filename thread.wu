@@ -1,0 +1,25 @@
+import types { Object_T }
+
+
+
+Thread: struct {}
+
+Thread_T: trait {
+    getError:   fun(self) -> str?
+    isRunning:  fun(self) -> bool
+    start:      fun(self, ...) -> nil
+    wait:       fun(self) -> nil
+}
+
+implement Thread: Object_T {
+    release: extern fun(self) -> bool
+    type:    extern fun(self) -> str
+    typeOf:  extern fun(self, str) -> bool
+}
+
+implement Thread: Thread_T {
+    getError:   extern fun(self) -> str?
+    isRunning:  extern fun(self) -> bool
+    start:      extern fun(self, ...) -> nil
+    wait:       extern fun(self) -> nil
+}

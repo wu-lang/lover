@@ -1,28 +1,4 @@
-Image: trait {
-    getWidth:  fun(self) -> float
-    getHeight: fun(self) -> float
-}
+import types { Object_T, Data_T }
 
-newImage:         extern fun(str) -> Image
-setDefaultFilter: extern fun(str, str)
 
-setColor:  extern fun(float, float, float)
 
-rectangle: extern fun(str, float, float, float, float)
-circle:    extern fun(float, float, float)
-draw:      extern fun(Image, float, float, float, float, float)
-print:     extern fun(str, float, float)
-line:      extern fun(float, float, float, float)
-polygon:   extern fun(...float)
-
-push:      extern fun
-pop:       extern fun
-
-translate: extern fun(float, float)
-rotate:    extern fun(float)
-scale:     extern fun(float, float)
-
-getWidth:  extern fun -> float
-getHeight: extern fun -> float
-
-reset:     extern fun
